@@ -1,0 +1,7 @@
+E:\userRegistrationMS\UserRegistrationMSTest\UserRegistrationMSTest\bin\Debug\UserRegistrationMSTest.exe.config
+E:\userRegistrationMS\UserRegistrationMSTest\UserRegistrationMSTest\bin\Debug\UserRegistrationMSTest.exe
+E:\userRegistrationMS\UserRegistrationMSTest\UserRegistrationMSTest\bin\Debug\UserRegistrationMSTest.pdb
+E:\userRegistrationMS\UserRegistrationMSTest\UserRegistrationMSTest\obj\Debug\UserRegistrationMSTest.csprojAssemblyReference.cache
+E:\userRegistrationMS\UserRegistrationMSTest\UserRegistrationMSTest\obj\Debug\UserRegistrationMSTest.csproj.CoreCompileInputs.cache
+E:\userRegistrationMS\UserRegistrationMSTest\UserRegistrationMSTest\obj\Debug\UserRegistrationMSTest.exe
+E:\userRegistrationMS\UserRegistrationMSTest\UserRegistrationMSTest\obj\Debug\UserRegistrationMSTest.pdb

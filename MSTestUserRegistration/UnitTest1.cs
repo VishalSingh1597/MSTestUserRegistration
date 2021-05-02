@@ -20,22 +20,22 @@ namespace MSTestUserRegistration
         /// Validate first name
         /// </summary>
         [TestMethod]
-        [DataRow("Ankita")]
-        [DataRow("Rani")]
-        [DataRow("Bajaj")]
-        [DataRow("Sachin")]
-        [DataRow("Raj")]
-        [DataRow("Ashwin")]
+        [DataRow("Singh")]
+        [DataRow("Khawshi")]
+        [DataRow("Kholia")]
+        [DataRow("Kumbhare")]
+        [DataRow("Singh")]
+        [DataRow("Patil")]
 
         public void Given_FirstName_StartsWithCapital_MinThreeCharacter_ShouldReturnTrue(string name)
         {
             try
             {
-                string result = userDetailsPattern.ValidateFirstName(name);
+                string result = userDetailsPattern.ValidateLastName(name);
             }
             catch (UserException e)
             {
-                Assert.AreEqual("Valid First Name", e.Message);
+                Assert.AreEqual("Valid Last Name", e.Message);
             }
         }
 
@@ -43,20 +43,20 @@ namespace MSTestUserRegistration
         ///// Test Method to Invalidate first name
         ///// </summary>
         [TestMethod]
-        [DataRow("pRIYANSHU")]
-        [DataRow("sHIVAM")]
-        [DataRow("aNSHU")]
+        [DataRow("sHARMA")]
+        [DataRow("uPDHAYAY")]
+        [DataRow("yADAV")]
 
 
         public void GivenFirstName_IfAll_LettersAreCapital_AndMinThreeCharacters_ShouldReturnFalse(string invalidFirstName)
         {
             try
             {
-                string result = userDetailsPattern.ValidateFirstName(invalidFirstName);
+                string result = userDetailsPattern.ValidateLastName(invalidFirstName);
             }
             catch (UserException e)
             {
-                Assert.AreEqual("Invalid First Name", e.Message);
+                Assert.AreEqual("Invalid Last Name", e.Message);
             }
         }
     }

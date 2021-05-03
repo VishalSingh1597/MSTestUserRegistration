@@ -21,8 +21,8 @@ namespace MSTestUserRegistration
         /// </summary>
         [TestMethod]
         [DataRow("abc.xyz@bl.co.in")]
-        [DataRow("anki.abc@bl.cp.in")]
-        [DataRow("sach.dcd@bl.cp.in")]
+        [DataRow("vishu.abc@bl.cp.in")]
+        [DataRow("rosh.dcd@bl.cp.in")]
 
         public void Given__Valid_Email_ShouldReturnTrue(string emailInvalid)
         {

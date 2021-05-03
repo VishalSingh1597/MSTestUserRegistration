@@ -20,9 +20,9 @@ namespace MSTestUserRegistration
         /// Validate Password
         /// </summary>
         [TestMethod]
-        [DataRow("Vishaaal")]
-        [DataRow("priyeshsh")]
-        [DataRow("chandanya")]
+        [DataRow("Vishu@15")]
+        [DataRow("Priyesh&s")]
+        [DataRow("Chnd##")]
 
         public void Given__Valid_Password_ShouldReturnTrue(string validPass)
         {

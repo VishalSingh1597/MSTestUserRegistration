@@ -13,14 +13,22 @@ namespace MSTestUserRegistration
         [TestMethod]
         public void GivenFirstNameShouldReturnHappy()
         {
-            //Arrange
+            try
+            {
+                //Act
+                bool output = UserDetail.validateFirstName("Vishal");
+            }
 
-            bool expected = true;
-            //Act
-            bool output = UserDetail.validateFirstName("Vishal");
-            //Assert
-            Assert.AreEqual(expected, output);
+            catch (UserRegistrationException e)
+            {
+                //Assert
+                Assert.AreEqual("Invalid First Name,Name should be first letter capital", e.Message);
+            }
         }
+
+        /// <summary>
+        /// Given Valid Last Name should return true
+        /// </summary>
 
         /// <summary>
         /// Given Valid Last Name should return true
@@ -28,9 +36,14 @@ namespace MSTestUserRegistration
         [TestMethod]
         public void GivenLastNameShouldReturnHappy()
         {
-            bool expected = true;
-            bool output = UserDetail.validateLastName("Singh");
-            Assert.AreEqual(expected, output);
+            try
+            {
+                bool output = UserDetail.validateLastName("Singh");
+            }
+            catch (UserRegistrationException e)
+            {
+                Assert.AreEqual("Invalid Last Name,Name should be first letter capital", e.Message);
+            }
         }
 
         /// <summary>
@@ -86,10 +99,14 @@ namespace MSTestUserRegistration
         [DataRow("abc+100@gmail.com")]
         public void GivenValidEmailListShouldReturnsTrue(string email)
         {
-            bool expected = true;
-            var result = UserDetail.validateEmailList(email);
-            Assert.AreEqual(expected, result);
+            try
+            {
+                var result = UserDetail.validateEmailList(email);
+            }
+            catch (UserRegistrationException e)
+            {
+                Assert.AreEqual("Invalid Email.Email should be in format", e.Message);
+            }
         }
     }
 }
-   

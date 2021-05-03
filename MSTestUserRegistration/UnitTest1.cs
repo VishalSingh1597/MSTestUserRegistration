@@ -7,53 +7,89 @@ namespace MSTestUserRegistration
     [TestClass]
     public class Test
     {
-        private readonly UserDetail userDetailsPattern;
-        //private readonly object DataRow;
-
-        //parameterless constructor
-        public Test()
+        /// <summary>
+        /// Given Valid First Name should return true
+        /// </summary>
+        [TestMethod]
+        public void GivenFirstNameShouldReturnHappy()
         {
-            userDetailsPattern = new UserDetail(); //object of UserDetail and store the userDetailsPattern variable
+            //Arrange
+
+            bool expected = true;
+            //Act
+            bool output = UserDetail.validateFirstName("Vishal");
+            //Assert
+            Assert.AreEqual(expected, output);
         }
 
         /// <summary>
-        /// Validate Password
+        /// Given Valid Last Name should return true
         /// </summary>
         [TestMethod]
-        [DataRow("Vishu@15")]
-        [DataRow("Priyesh&s")]
-        [DataRow("Chnd##")]
-
-        public void Given__Valid_Password_ShouldReturnTrue(string validPass)
+        public void GivenLastNameShouldReturnHappy()
         {
-            try
-            {
-                string result = userDetailsPattern.ValidatePassword(validPass);
-            }
-            catch (UserException e)
-            {
-                Assert.AreEqual("Valid Password", e.Message);
-            }
+            bool expected = true;
+            bool output = UserDetail.validateLastName("Singh");
+            Assert.AreEqual(expected, output);
         }
 
         /// <summary>
-        /// passing invalid Password patterns should return invalid Password
+        /// Given Valid Email should return true
         /// </summary>
         [TestMethod]
-        [DataRow("vis")]
-        [DataRow("priyaq")]
-        [DataRow("abwe")]
-
-        public void GivenInvalidPassword_ShouldReturnFalse(string invalidPassword)
+        public void GivenValidEmailIdShouldReturnHappy()
         {
-            try
-            {
-                string result = userDetailsPattern.ValidatePassword(invalidPassword);
-            }
-            catch (UserException e)
-            {
-                Assert.AreEqual("Invalid password", e.Message);
-            }
+            //Arrange
+            bool expected = true;
+            //Act
+            bool output = UserDetail.validateEmail("abc@gmail.com");
+            // Assert
+            Assert.AreEqual(expected, output);
+        }
+
+
+        /// <summary>
+        /// Given Valid Mobile No should return true
+        /// </summary>
+        [TestMethod]
+        public void GivenValidMobileShouldReturnHappy()
+        {
+            bool expected = true;
+            bool output = UserDetail.validateMobileNo("91 9930315160");
+            Assert.AreEqual(expected, output);
+        }
+
+        /// <summary>
+        /// Given Valid Password should return true
+        /// </summary>
+        [TestMethod]
+        public void GivenValidPasswordShouldReturnHappy()
+        {
+            bool expected = true;
+            bool output = UserDetail.validatePassword("Vishu@123");
+            Assert.AreEqual(expected, output);
+        }
+
+        /// <summary>
+        /// Test case for all valid and invalid emails
+        /// </summary>
+        /// <param name="email></param>
+        [DataTestMethod]
+        [DataRow("abc@yahoo.com")]
+        [DataRow("abc-100@yahoo.com")]
+        [DataRow("abc.100@yahoo.com")]
+        [DataRow("abc111@abc.com")]
+        [DataRow("abc-100@abc.net")]
+        [DataRow("abc.100@abc.com.au")]
+        [DataRow("abc@1.com")]
+        [DataRow("abc@gmail.com.com")]
+        [DataRow("abc+100@gmail.com")]
+        public void GivenValidEmailListShouldReturnsTrue(string email)
+        {
+            bool expected = true;
+            var result = UserDetail.validateEmailList(email);
+            Assert.AreEqual(expected, result);
         }
     }
 }
+   

@@ -17,45 +17,42 @@ namespace MSTestUserRegistration
         }
 
         /// <summary>
-        /// Validate MobileNumber
+        /// Validate Password
         /// </summary>
         [TestMethod]
-        [DataRow("91 9930315160")]
-        [DataRow("91 7304383177")]
-        [DataRow("91 9869538974")]
+        [DataRow("Vishaaal")]
+        [DataRow("priyeshsh")]
+        [DataRow("chandanya")]
 
-        public void Given__Valid_MobileNumber_ShouldReturnTrue(string validMobile)
+        public void Given__Valid_Password_ShouldReturnTrue(string validPass)
         {
             try
             {
-                string result = userDetailsPattern.ValidateMobileNumber(validMobile);
+                string result = userDetailsPattern.ValidatePassword(validPass);
             }
             catch (UserException e)
             {
-                Assert.AreEqual("Valid Mobile Number", e.Message);
+                Assert.AreEqual("Valid Password", e.Message);
             }
         }
 
         /// <summary>
-        /// passing invalid mobile number patterns should return invalid mobile number
+        /// passing invalid Password patterns should return invalid Password
         /// </summary>
         [TestMethod]
-        [DataRow("91 9967689")]
-        [DataRow("91 775643")]
-        [DataRow("91 9987654")]
-        [DataRow("91 9875640")]
-        [DataRow("91 98776655")]
-        [DataRow("91 988774455")]
-        public void GivenInvalidMobileNumber_ShouldReturnFalse(string invalidMobile)
+        [DataRow("vis")]
+        [DataRow("priyaq")]
+        [DataRow("abwe")]
+
+        public void GivenInvalidPassword_ShouldReturnFalse(string invalidPassword)
         {
             try
             {
-                string result = userDetailsPattern.ValidateMobileNumber(invalidMobile);
-
+                string result = userDetailsPattern.ValidatePassword(invalidPassword);
             }
             catch (UserException e)
             {
-                Assert.AreEqual("Invalid mobile number", e.Message);
+                Assert.AreEqual("Invalid password", e.Message);
             }
         }
     }

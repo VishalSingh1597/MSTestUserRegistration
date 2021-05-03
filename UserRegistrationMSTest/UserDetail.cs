@@ -9,12 +9,13 @@ namespace UserRegistrationMSTest
 {
     public class UserDetail
     {
-        //Regular expression patterns for First name 1st letter capital and minimun 3char
-        public static string namePattern = "^[A-Z]{1}[A-Za-z]{2,}$";
+        //Regular expression patterns for mobile number
+        public static string mobileNumberPattern = "^91\\s[1-9]{1}[0-9]{9}$";
 
         //Validation of  all the details
-        public Func<string, string> ValidateFirstName = x => Regex.IsMatch(x, namePattern) ? "Valid First Name" :
-           throw new UserException(UserException.ExceptionType.INVALID_FIRSTNAME, "Invalid First Name");
+        public Func<string, string> ValidateMobileNumber = x => Regex.IsMatch(x, mobileNumberPattern) ? "Valid mobile number" :
+           throw new UserException(UserException.ExceptionType.INVALID_MOBILE_NUMBER, "Invalid mobile number");
+
 
     }
 }

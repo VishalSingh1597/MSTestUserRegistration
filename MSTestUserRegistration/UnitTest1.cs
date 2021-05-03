@@ -17,45 +17,45 @@ namespace MSTestUserRegistration
         }
 
         /// <summary>
-        /// Validate Email Id
+        /// Validate MobileNumber
         /// </summary>
         [TestMethod]
-        [DataRow("abc.xyz@bl.co.in")]
-        [DataRow("anki.abc@bl.cp.in")]
-        [DataRow("sach.dcd@bl.cp.in")]
+        [DataRow("91 9930315160")]
+        [DataRow("91 7304383177")]
+        [DataRow("91 9869538974")]
 
-        public void Given__Valid_Email_ShouldReturnTrue(string emailInvalid)
+        public void Given__Valid_MobileNumber_ShouldReturnTrue(string validMobile)
         {
             try
             {
-                string result = userDetailsPattern.ValidateEmail(emailInvalid);
+                string result = userDetailsPattern.ValidateMobileNumber(validMobile);
             }
             catch (UserException e)
             {
-                Assert.AreEqual("Valid Email", e.Message);
+                Assert.AreEqual("Valid Mobile Number", e.Message);
             }
         }
 
         /// <summary>
-        /// Test Method to pass invalid email id.
+        /// passing invalid mobile number patterns should return invalid mobile number
         /// </summary>
         [TestMethod]
-        [DataRow("vishal@gmail")]
-        [DataRow("vishal@gmail.comm")]
-        [DataRow("vishal@gmail.com.ind.us")]
-        [DataRow("vishal.#100@gmail")]
-        [DataRow("vishal11@gmail.com.a12")]
-        [DataRow("vishal@gmail.com.12sa")]
-        [DataRow("_vishal@gmail.com")]
-        public void GivenEmailId_WhenIsNotProper_ShouldReturnFalse(string emailInvalid)
+        [DataRow("91 9967689")]
+        [DataRow("91 775643")]
+        [DataRow("91 9987654")]
+        [DataRow("91 9875640")]
+        [DataRow("91 98776655")]
+        [DataRow("91 988774455")]
+        public void GivenInvalidMobileNumber_ShouldReturnFalse(string invalidMobile)
         {
             try
             {
-                string result = userDetailsPattern.ValidateEmail(emailInvalid);
+                string result = userDetailsPattern.ValidateMobileNumber(invalidMobile);
+
             }
             catch (UserException e)
             {
-                Assert.AreEqual("Invalid email id", e.Message);
+                Assert.AreEqual("Invalid mobile number", e.Message);
             }
         }
     }
